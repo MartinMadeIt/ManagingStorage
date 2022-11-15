@@ -1,0 +1,16 @@
+@import "../../../utilities.scss";
+@import "../../../variables.scss";
+
+.container {
+    @include componentFullSize;
+    background-color: $main-dark;
+    @include center;
+    padding: 60px 0px;
+}
+
+.document {
+    height: 800px;
+    width: 600px;
+    background-color: #fff;
+    padding: 20px;
+}

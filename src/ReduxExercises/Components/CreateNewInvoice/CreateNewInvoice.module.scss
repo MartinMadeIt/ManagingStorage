@@ -1,0 +1,54 @@
+@import "../../../variables.scss";
+@import "../../../utilities.scss";
+
+.container {
+    @include componentFullSize;
+    background-color: $main-dark;
+    color: $main-light;
+    @include center;
+}
+
+.desc {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-family: $montserrat;
+    font-size: 36px;
+    font-weight: 100;
+}
+
+.form {
+    width: 80vw;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: repeat(2, 35%);
+    gap: 20px;
+    padding: 30px;
+
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(255, 255, 255, 0.69);
+
+    button {
+        height: 40px;
+        grid-column: 1/span 2;
+
+        border: none;
+        border-radius: 6px;
+        box-shadow: 0 0 4px 0px #00000080;
+
+        font-family: $montserrat;
+        font-size: 18px;
+        font-weight: 300;
+        color: white;
+        background-color: rgba(0, 0, 255, 0.346);
+
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba(0, 0, 255, 0.547);
+        }
+
+    }
+}

@@ -1,0 +1,9 @@
+@import "../../../utilities.scss";
+@import "../../../variables.scss";
+
+.container {
+    width: 100vw;
+    min-height: 100vh;
+    background-color: $main-dark;
+    color: $main-light;
+}

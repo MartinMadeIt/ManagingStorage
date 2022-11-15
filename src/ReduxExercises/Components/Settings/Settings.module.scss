@@ -1,0 +1,109 @@
+@import "../../../variables.scss";
+@import "../../../utilities.scss";
+
+.container {
+    @include componentFullSize;
+    backdrop-filter: blur(6px);
+    @include center;
+}
+
+.settings {
+    position: relative;
+    width: 80vw;
+    min-width: 700px;
+    height: 90vh;
+    min-height: 600px;
+    border-radius: 12px;
+
+    background-color: rgba(255, 255, 255, 0.444);
+    @include center;
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+
+
+    .buttonExit {
+        font-size: 36px;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        transition: 200ms;
+
+        &:hover {
+            transform: scale(.95);
+            color: rgba(255, 88, 88, 0.691);
+        }
+    }
+}
+
+.form {
+    display: grid;
+    grid-template-columns: repeat(2, 300px);
+    gap: 20px;
+    transition: 200ms;
+    font-family: $montserrat;
+
+    .submit {
+        position: relative;
+        font-family: $montserrat;
+        font-weight: 300;
+        border-radius: 6px;
+        border: 1px solid rgb(129, 0, 0);
+        background-color: transparent;
+        color: rgb(129, 0,0 );
+        font-size: 18px;
+        letter-spacing: 2px;
+        cursor: pointer;
+        overflow: hidden;
+
+        &::before {
+            position: absolute;
+            top: 0;
+            left: -400px;
+
+            height: 100%;
+            width: 100%;
+            content: 'Change data ?';
+            font-family: $montserrat;
+            font-size: 18px;
+            @include center;
+            font-weight: 300;
+            color: #fff;
+            transition: 200ms;
+        }
+
+        &:hover::before {
+            left: 0;
+            background-color: rgb(129, 0, 0);
+        }
+    }
+}
+
+.actual {
+    font-family: $montserrat;
+    font-size: 14px;
+    font-weight: 300;
+
+    width: 40%;
+    height: 40%;
+    border: 1px solid rgb(20, 20, 20);
+    border-radius: 6px;
+    @include center;
+    flex-direction: column;
+
+    .desc {
+        font-size: 24px;
+        text-decoration: underline;
+    }
+
+    .infos {
+
+        p {
+            transition: 200ms;
+        }
+
+        p:hover {
+            transform: scale(2);
+            background-color: #fff;
+        }
+    }
+}

@@ -1,0 +1,84 @@
+@import "../../../variables.scss";
+@import "../../../utilities.scss";
+
+.container {
+    @include componentFullSize;
+    @include center;
+    flex-direction: column;
+    background-color: $main-dark;
+    gap: 10px;
+}
+
+.order {
+    width: 70%;
+    min-width: 800px;
+    height: 50px;
+    border-radius: 10px;
+    @include center;
+    justify-content: space-between;
+
+    grid-area: 50px;
+    font-size: 16px;
+    font-family: $montserrat;
+
+    background-color: rgb(56, 56, 56);
+    color: $main-light;
+}
+
+.orderPayed {
+    width: 70%;
+    min-width: 800px;
+    height: 50px;
+    border-radius: 10px;
+    @include center;
+    justify-content: space-between;
+
+    grid-area: 50px;
+    font-size: 16px;
+    font-family: $montserrat;
+
+    background-color: rgba(56, 56, 56, 0.327);
+    color: darken($color: $main-dark, $amount: 50%);
+}
+
+.little {
+    font-size: .7rem;
+}
+
+.checkAndPrice {
+    @include center;
+    margin-right: 20px;
+    gap: 20px;
+}
+
+.orderName {
+    margin-left: 20px;
+}
+
+.payBtn {
+    width: 60px;
+    height: 40px;
+    border-radius: 10px;
+
+    border: 1px solid rgba(0, 194, 0, 0.488);
+    background-color: rgb(56, 56, 56);
+    color: white;
+    font-family: $montserrat;
+    font-weight: 300;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 150ms;
+
+    &:hover {
+    box-shadow: 0 0 10px 0px #65ff00a3;
+    text-shadow: 0 0 0px #1ef801;
+    background-color: rgba(0, 226, 0, 0.283);
+    }
+}
+
+.nothingHere {
+    font-family: $montserrat;
+    font-weight: 100;
+    color: $main-light;
+    font-size: 42px;
+}

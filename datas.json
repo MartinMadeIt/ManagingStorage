@@ -1,0 +1,199 @@
+{
+  "finance": {
+    "accountBallance": 0
+  },
+  "company": {
+    "name": "Invoice Company",
+    "nip": "7896785647",
+    "regon": "6784536251",
+    "local": "ul. Startowa 12",
+    "postalCode": "22-333",
+    "city": "Pcim",
+    "email": "invoices.official@company.pl"
+  },
+  "orders": [
+    {
+      "companyName": "VetLife Sp.z.o.o",
+      "street": "Gdanska",
+      "localNumber": "23",
+      "city": "Warszawa",
+      "postalCode": "56-342",
+      "email": "perex@ex.eu",
+      "orderName": "Euthasol 500 ml 12 szt.",
+      "brutto": "1200",
+      "completed": true,
+      "id": 1
+    },
+    {
+      "companyName": "VetLife Sp.z.o.o",
+      "street": "Sportowa",
+      "localNumber": "23",
+      "city": "Warszawa",
+      "postalCode": "45-567",
+      "email": "perex@ex.eu",
+      "orderName": "Stal nierdzewna 10 szt.",
+      "brutto": "4200",
+      "completed": true,
+      "id": 2
+    },
+    {
+      "companyName": "MorbiVital",
+      "street": "Witasa",
+      "localNumber": "54",
+      "city": "Nowe Miasto",
+      "postalCode": "56-342",
+      "email": "perex@ex.eu",
+      "orderName": "Euthasol 500 ml 12 szt.",
+      "brutto": "1200",
+      "completed": true,
+      "id": 3
+    },
+    {
+      "companyName": "VetLife Sp.z.o.o",
+      "street": "Witasa",
+      "localNumber": "34",
+      "city": "Nowe Miasto",
+      "postalCode": "56-342",
+      "email": "genspice@nyt.com",
+      "orderName": "Simparica 20mg 5 szt.",
+      "brutto": "250",
+      "completed": true,
+      "id": 4
+    },
+    {
+      "companyName": "Vetting Co",
+      "street": "Glowacka",
+      "localNumber": "12",
+      "city": "Warta",
+      "postalCode": "12-432",
+      "email": "vetting@vet.co",
+      "orderName": "Dechinel PRO, Simparica 20mg 3szt., Duphalyte 500 ml ",
+      "brutto": "900",
+      "completed": true,
+      "id": 5
+    },
+    {
+      "companyName": "Vetland",
+      "street": "Warszawska",
+      "localNumber": "89",
+      "city": "Krakov",
+      "postalCode": "66-980",
+      "email": "vetland.poland@vet.org",
+      "orderName": "Ketamina 20ml, Synulox 50ml 2szt., Tolfedine 30ml 2szt.",
+      "brutto": "780",
+      "completed": true,
+      "id": 6
+    },
+    {
+      "companyName": "VetHurt S.A",
+      "street": "Towarowa",
+      "localNumber": "24",
+      "city": "Opole",
+      "postalCode": "42-435",
+      "email": "hurtpol@vet.pl",
+      "orderName": "Tolfine 4mg 3 szt., Simparica 60 mg 2 szt.",
+      "brutto": "190",
+      "completed": true,
+      "id": 7
+    }
+  ],
+  "invoices": [
+    {
+      "date": "15.11.2022",
+      "items": [
+        1
+      ],
+      "company": {
+        "name": "MartinMadeIT",
+        "nip": "1234532123",
+        "regon": "1234564899",
+        "local": "ul. Miejska 24",
+        "postalCode": "22-333",
+        "city": "Pcim",
+        "email": "martin@ma.de"
+      },
+      "id": 1
+    },
+    {
+      "date": "15.11.2022",
+      "items": [
+        2
+      ],
+      "company": {
+        "name": "MartinMadeIT",
+        "nip": "1234532123",
+        "regon": "1234564899",
+        "local": "ul. Miejska 24",
+        "postalCode": "22-333",
+        "city": "Pcim",
+        "email": "martin@ma.de"
+      },
+      "id": 2
+    },
+    {
+      "date": "15.11.2022",
+      "items": [
+        3
+      ],
+      "company": {
+        "name": "MartinMadeIT",
+        "nip": "1234532123",
+        "regon": "1234564899",
+        "local": "ul. Miejska 24",
+        "postalCode": "22-333",
+        "city": "Pcim",
+        "email": "martin@ma.de"
+      },
+      "id": 3
+    },
+    {
+      "date": "15.11.2022",
+      "items": [
+        4,
+        5
+      ],
+      "company": {
+        "name": "MartinMade",
+        "nip": "1234532123",
+        "regon": "1234564899",
+        "local": "ul. Miejska 24",
+        "postalCode": "22-333",
+        "city": "Pcim",
+        "email": "martin@ma.de"
+      },
+      "id": 4
+    },
+    {
+      "date": "15.11.2022",
+      "items": [
+        6
+      ],
+      "company": {
+        "name": "Invoice Company",
+        "nip": "7896785647",
+        "regon": "6784536251",
+        "local": "ul. Startowa 12",
+        "postalCode": "22-333",
+        "city": "Pcim",
+        "email": "invoices.official@company.pl"
+      },
+      "id": 5
+    },
+    {
+      "date": "15.11.2022",
+      "items": [
+        7
+      ],
+      "company": {
+        "name": "Invoice Company",
+        "nip": "7896785647",
+        "regon": "6784536251",
+        "local": "ul. Startowa 12",
+        "postalCode": "22-333",
+        "city": "Pcim",
+        "email": "invoices.official@company.pl"
+      },
+      "id": 6
+    }
+  ]
+}

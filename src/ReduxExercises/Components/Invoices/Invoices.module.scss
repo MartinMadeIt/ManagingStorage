@@ -1,0 +1,102 @@
+@import "../../../utilities.scss";
+@import "../../../variables.scss";
+
+.container {
+    @include componentFullSize;
+    background-color: $main-dark;
+    @include center;
+}
+
+.date {
+    position: absolute;
+    top: 100px;
+    left: 40px;
+
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.showAll {
+    position: absolute;
+    top: 170px;
+    left: 40px;
+
+    font-family: $montserrat;
+    font-weight: 300;
+    font-size: 20px;
+    color: $main-light;
+
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+
+    border: none;
+    background-color: rgba(94, 94, 255, 0.411);
+
+    cursor: pointer;
+    @include center;
+    gap: 10px;
+
+    &:hover {
+        background-color: rgba(35, 35, 255, 0.54);
+        box-shadow: 0 0 20px 10px #0000ff59;
+    }
+
+    .allStatus {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: rgba(128, 128, 128, 0.352);
+        border: 1px solid  rgb(74, 74, 74);
+
+        box-shadow: inset 0 0 5px 0px #adff2f82;
+    }
+
+    .allStatusActive {
+        background-color: rgb(102, 255, 0);
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+
+        border: 1px solid  rgb(74, 74, 74);
+        box-shadow: 0 0 10px 4px rgb(55 255 0 / 35%);
+    }
+}
+
+.list {
+    width: 80%;
+    height: 80%;
+    overflow: scroll;
+
+    @include center;
+    gap: 40px;
+}
+
+.invoice {
+    width: 80px;
+    height: 100px;
+    @include center;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 5px;
+
+    a {
+        font-family: $montserrat;
+        font-weight: 300;
+        color: $main-light;
+        font-size: 14px;
+
+        &:hover {
+            color: rgb(105, 137, 255);
+        }
+    }
+
+    .icon {
+        color: $main-light;
+        font-size: 56px;
+        margin: 0;
+        padding: 0;
+    }
+}

@@ -1,0 +1,91 @@
+@import "../../../utilities.scss";
+@import "../../../variables.scss";
+
+.container {
+    @include componentFullSize;
+    @include center;
+    flex-direction: column;
+    background-color: $main-dark;
+}
+
+.person {
+    width: 100%;
+    @include center;
+    gap: 60px;
+
+    .settings {
+        position: absolute;
+        top: 60px;
+        left: 60px;
+
+        font-size: 36px;
+        color: rgba(255, 255, 255, 0.375);
+        transition: 200ms;
+
+        &:hover {
+            color: white;
+            transform: scale(.95);
+            filter: drop-shadow(0px 0px 10px white);
+        }
+    }
+
+    .avatar {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        border: 1px solid rgba(128, 128, 128, 0.157);
+        background-image: url("https://images.unsplash.com/photo-1579227114347-15d08fc37cae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80");
+        background-size: 160%;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 50%;
+        cursor: pointer;
+
+        &:hover::before {
+            transition: 250ms;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            @include center;
+
+            font-family: $montserrat-alt;
+            font-weight: 200;
+            font-size: 20px;
+            text-align: center;
+
+            width: 200px;
+            height: 200px;
+            content: "Click to manage your account !";
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.304);
+            backdrop-filter: blur(6px);
+
+            box-shadow: 0 0 20px 0px white;
+        }
+    }
+
+    .name {
+        font-family: $montserrat;
+        color: rgba(240, 248, 255, 0.322);
+        font-weight: 100;
+        font-size: 60px;
+    }
+}
+.ballance {
+    position: absolute;
+    bottom: 60px;
+    left: auto;
+
+    font-family: $nunito;
+    font-size: 50px;
+    font-weight: 200;
+
+    color: darken($color: $main-light, $amount: 40%);
+}
+
+a{
+    color: aliceblue;
+    text-decoration: none;
+}
+
