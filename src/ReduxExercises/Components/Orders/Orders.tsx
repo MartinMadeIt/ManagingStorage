@@ -10,10 +10,9 @@ import { withdraw } from '../../Redux/moneySlice'
 export interface Order {
     id:number,
     companyName:string,
-    street:string,
-    localNumber:string,
-    city:string,
-    postalCode:string,
+    nip:string,
+    regon:string,
+    address:string,
     email:string,
     orderName :string,
     brutto:string,
@@ -92,7 +91,7 @@ function Orders() {
             Promise.all(promises)
                 .then(data => data);
             
-            
+            if(order.length>0){
             fetch(`http://localhost:3000/invoices`,
                 {
                     method  : "POST",
@@ -114,7 +113,7 @@ function Orders() {
                 .then(datas => {
                     ids.forEach(id => dispatch(removeOrder({id})))
                     return datas})
-        }      
+        }}   
         console.log(`Account: ${account}`);
         console.log(`Order: ${summaryPrice}`);
         

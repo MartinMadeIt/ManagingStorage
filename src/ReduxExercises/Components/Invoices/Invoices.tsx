@@ -5,7 +5,17 @@ import GoBack from '../GoBack/GoBack'
 import style from "./Invoices.module.scss"
 import { FaFileInvoiceDollar } from "react-icons/fa";
 
+// Ten typ trzeba poprawić
 export interface Invoice {
+  comapny: {
+    name:string,
+    local:string,
+    city:string,
+    postalCode:string,
+    email:string,
+    nip:string,
+    regon:string
+  }
   date:string,
   items:number[],
   id:number
@@ -19,7 +29,10 @@ function Invoices() {
 
   useEffect(() => {
     fetchAPI<Invoice[]>("http://localhost:3000", "invoices")
-        .then(data => setData(data))
+        .then(data => {
+          console.log(data);
+          
+          setData(data)})
   }, [])
 
   const spliceDate = (date:string) => {

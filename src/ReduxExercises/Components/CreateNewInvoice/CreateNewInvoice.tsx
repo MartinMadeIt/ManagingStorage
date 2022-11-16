@@ -10,10 +10,9 @@ const requiredMes = "Field Required"
 
 const yupSchema = yup.object ({
   companyName: yup.string().required(requiredMes),
-  street: yup.string().required().min(3).max(30),
-  localNumber : yup.string(),
-  city: yup.string().required().min(3).max(30),
-  postalCode: yup.string().matches(/^[0-9]{2}-[0-9]{3}/, "Postal Code is XX-XXX").required(requiredMes),
+  address: yup.string().required().min(12),
+  nip : yup.string().required().min(10).max(10),
+  regon: yup.string().required().min(9).max(9),
   email: yup.string().email().required(),
 
   orderName : yup.string().required(),
@@ -29,10 +28,9 @@ function CreateNewInvoice() {
   const formik = useFormik<FormValues>({
     initialValues: {
       companyName:"",
-      street:"",
-      localNumber:"",
-      city:"",
-      postalCode:"",
+      address:"",
+      nip:"",
+      regon:"",
       email: "",
 
       orderName : "",
@@ -43,10 +41,9 @@ function CreateNewInvoice() {
       postAPI("http://localhost:3000", 
               "orders", 
               values.companyName,
-              values.street,
-              values.localNumber,
-              values.city,
-              values.postalCode,
+              values.address,
+              values.nip,
+              values.regon,
               values.email,
               values.orderName,
               values.brutto,
@@ -64,10 +61,9 @@ function CreateNewInvoice() {
           
       <form onSubmit={formik.handleSubmit} className={styles.form}>
         <TextInput<FormValues> formik={formik} acc={"companyName"} label={"Company Name"}/>
-        <TextInput<FormValues> formik={formik} acc={"street"} label={"Street"}/>
-        <TextInput<FormValues> formik={formik} acc={"localNumber"} label={"Local Number"}/>
-        <TextInput<FormValues> formik={formik} acc={"city"} label={"City"}/>
-        <TextInput<FormValues> formik={formik} acc={"postalCode"} label={"Postal Code"}/>
+        <TextInput<FormValues> formik={formik} acc={"address"} label={"Street, XX-XXX, City"}/>
+        <TextInput<FormValues> formik={formik} acc={"nip"} label={"NIP"}/>
+        <TextInput<FormValues> formik={formik} acc={"regon"} label={"REGON"}/>
         <TextInput<FormValues> formik={formik} acc={"email"} label={"E-mail"}/>
         <TextInput<FormValues> formik={formik} acc={"orderName"} label={"Order Title / Name"}/>
         <TextInput<FormValues> formik={formik} acc={"brutto"} label={"Brutto Price"}/>

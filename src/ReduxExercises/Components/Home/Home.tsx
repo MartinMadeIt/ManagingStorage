@@ -6,7 +6,7 @@ import { AiOutlineSetting } from "react-icons/ai";
 import { useEffect, useState } from 'react'
 import { fetchAPI } from '../../Controllers/fetchAPI'
 
-
+// Dolny interface jest tym samym co exportowany CompanyType
 interface DataType {
   name: string,
   nip:string,
