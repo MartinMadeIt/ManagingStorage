@@ -1,7 +1,7 @@
 import styles from './Home.module.scss'
 import { Link } from 'react-router-dom'
-import {deafultAccountBalance} from "../../../config"
-import { useAppSelector } from '../../Redux/hooks'
+import {deafultAccountBalance} from "../../config"
+import { useAppSelector } from '../../Redux/hooks';
 import { AiOutlineSetting } from "react-icons/ai";
 import { useEffect, useState } from 'react'
 import { fetchAPI } from '../../Controllers/fetchAPI'

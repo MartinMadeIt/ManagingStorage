@@ -1,14 +1,14 @@
 import './App.css';
-import Home from './ReduxExercises/Components/Home/Home';
-import Wrapper from './ReduxExercises/Components/Wrapper/Wrapper';
+import Home from './Components/Home/Home';
+import Wrapper from './Components/Wrapper/Wrapper';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Manage from './ReduxExercises/Components/Manage/Manage';
-import Invoices from './ReduxExercises/Components/Invoices/Invoices';
-import Sell from './ReduxExercises/Components/Sell/Sell';
-import CreateNewInvoice from './ReduxExercises/Components/CreateNewInvoice/CreateNewInvoice';
-import Orders from './ReduxExercises/Components/Orders/Orders';
-import InvoiceView from './ReduxExercises/Components/InvoiceView/InvoiceView';
-import Settings from './ReduxExercises/Components/Settings/Settings';
+import Manage from './Components/Manage/Manage';
+import Invoices from './Components/Invoices/Invoices';
+import Sell from './Components/Sell/Sell';
+import CreateNewInvoice from './Components/CreateNewInvoice/CreateNewInvoice';
+import Orders from './Components/Orders/Orders';
+import InvoiceView from './Components/InvoiceView/InvoiceView';
+import Settings from './Components/Settings/Settings';
 
 function App() {
   return (
