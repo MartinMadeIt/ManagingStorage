@@ -74,25 +74,6 @@ function Orders() {
                 return data
             })
 
-
-
-            // const datasToMagazine = order.map(async (item) => {
-            //     const response = await fetch(`http://localhost:3000`,
-            //     {method: 'PATCH',
-            //     body: JSON.stringify({
-            //         magazine: {...magazine, item.name}
-            //     }),
-            //     headers: {
-            //         'Content-type': 'application/json; charset=UTF-8',
-            //     }}
-            //     )
-            //     if (!response.ok) {
-            //         return []
-            //     }
-            //     const data = await response.json();
-            //     return data
-            // })
-
             order.forEach(item => console.log(item.orderName)
             )
 

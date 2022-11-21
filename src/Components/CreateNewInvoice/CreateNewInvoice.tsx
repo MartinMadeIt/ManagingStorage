@@ -4,10 +4,11 @@ import * as yup from "yup";
 import { useFormik } from "formik";
 import TextInput from "../TextInput/TextInput";
 import { InferType } from "yup";
-import postAPI, { postPositionsToMagazine } from "../../Controllers/postAPI";
+import postAPI from "../../Controllers/postAPI";
 import React, { useState } from "react";
 import { BiAddToQueue } from "react-icons/bi";
 import { NextOrderType, OrderInfos } from "../../types";
+import { TiDeleteOutline } from "react-icons/ti";
 
   const requiredMes = "Field Required"
 
@@ -123,6 +124,9 @@ import { NextOrderType, OrderInfos } from "../../types";
     return sum;
   }
 
+  const deletePosition = (e:React.MouseEvent<HTMLButtonElement>) => {
+    // setOrderList(orderList.filter(position => position.id ))    
+  }
 
   return (
     <div className={styles.container}>
@@ -165,7 +169,7 @@ import { NextOrderType, OrderInfos } from "../../types";
                         <td>{pos.summary} PLN</td>
                         <td>{Number(pos.margin)*100}%</td>
                         <td>{pos.vat} PLN</td>
-                        <td>X</td>
+                        <td><button type="button" onClick={deletePosition} id={String(index)} className={styles.delete} disabled><TiDeleteOutline /></button></td>
                       </tr>
                     )
                   })}

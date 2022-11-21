@@ -235,3 +235,11 @@
     font-size: 20px;
     color: black;
 }
+
+.delete {
+    border: none;
+    color: rgba(255, 0, 0, 0.344);
+    background-color: transparent;
+    font-size: 24px;
+    @include center;
+}
