@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import styles from "./Manage.module.scss"
 import { useAppDispatch, useAppSelector } from '../../Redux/hooks'
 import { withdraw, deposit } from '../../Redux/moneySlice'

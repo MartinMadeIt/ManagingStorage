@@ -5,7 +5,7 @@ import TextInput from "../TextInput/TextInput";
 import { InferType } from "yup";
 import * as yup from "yup";
 import { fetchAPI } from "../../Controllers/fetchAPI";
-import { CompanyType } from "../Orders/Orders";
+import { CompanyType } from "../../types"
 import { Link } from "react-router-dom";
 import { FaRegTimesCircle } from "react-icons/fa";
 
@@ -85,11 +85,11 @@ function Settings() {
                     </div>
                 </div>
                 <form className={styles.form} onSubmit={settingsUpdate.handleSubmit}>
-                    <TextInput formik={settingsUpdate} acc={"name"} label={"Company name"} />
-                    <TextInput formik={settingsUpdate} acc={"nip"} label={"NIP"} />
-                    <TextInput formik={settingsUpdate} acc={"regon"} label={"REGON"} />
-                    <TextInput formik={settingsUpdate} acc={"local"} label={"Address"} />
-                    <TextInput formik={settingsUpdate} acc={"email"} label={"E-mail"} />
+                    <TextInput formik={settingsUpdate} acc={"name"} label={"Company name"} disabled={false} />
+                    <TextInput formik={settingsUpdate} acc={"nip"} label={"NIP"} disabled={false}  />
+                    <TextInput formik={settingsUpdate} acc={"regon"} label={"REGON"}  disabled={false} />
+                    <TextInput formik={settingsUpdate} acc={"local"} label={"Address"}  disabled={false} />
+                    <TextInput formik={settingsUpdate} acc={"email"} label={"E-mail"}  disabled={false} />
                     <button type="submit" className={styles.submit}>Submit</button>
                 </form>
             </div>

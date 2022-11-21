@@ -15,17 +15,11 @@ export const orderSlice = createSlice({
     name : "order",
     initialState,
     reducers : {
-        // jak to skrócić ?
         addOrder: (state,action:PayloadAction<OrderState>) => {
            return [...state,{id: action.payload.id, companyName: action.payload.companyName, nip: action.payload.nip, 
             regon: action.payload.regon, address: action.payload.address,email: action.payload.email, 
             orderName: action.payload.orderName, brutto: action.payload.brutto, completed: action.payload.completed}]
         },
-        // addOrder: (state,action:PayloadAction<OrderState>) => {
-        //    return [...state,{id: action.payload.id, companyName: action.payload.companyName, street: action.payload.street, 
-        //     localNumber: action.payload.localNumber, city: action.payload.city, postalCode: action.payload.postalCode,
-        //     email: action.payload.email, orderName: action.payload.orderName, brutto: action.payload.brutto, completed: action.payload.completed}]
-        // },
         removeOrder : (state, action:PayloadAction<{id:number}>) => {
             return state.filter(el => el.id !== action.payload.id)
         }

@@ -2,7 +2,7 @@
 
 # dependencies
 /node_modules
-/datas.json
+# /datas.json
 /.pnp
 .pnp.js
 

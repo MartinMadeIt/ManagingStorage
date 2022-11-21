@@ -9,7 +9,7 @@ function RemoteQuad() {
   return (
     <div className={style.container}>
         <Link to="/orders"><FaFileInvoiceDollar /></Link>
-        <Link to="/sell"><AiFillDollarCircle /></Link>
+        <Link to="/magazine"><AiFillDollarCircle /></Link>
         <Link to="/placeorder"><AiOutlineShoppingCart /></Link>
         <Link to="/invoices"><FaFileInvoiceDollar /></Link>
     </div>

@@ -4,22 +4,8 @@ import { fetchAPI } from '../../Controllers/fetchAPI'
 import GoBack from '../GoBack/GoBack'
 import style from "./Invoices.module.scss"
 import { FaFileInvoiceDollar } from "react-icons/fa";
+import { Invoice } from '../../types'
 
-// Ten typ trzeba poprawić
-export interface Invoice {
-  comapny: {
-    name:string,
-    local:string,
-    city:string,
-    postalCode:string,
-    email:string,
-    nip:string,
-    regon:string
-  }
-  date:string,
-  items:number[],
-  id:number
-}
 
 function Invoices() {
 

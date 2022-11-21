@@ -5,29 +5,9 @@ import GoBack from '../GoBack/GoBack'
 import { addOrder, removeOrder } from '../../Redux/orderSlice'
 import { useAppDispatch, useAppSelector } from '../../Redux/hooks'
 import { withdraw } from '../../Redux/moneySlice'
+import { CompanyType, Order } from '../../types'
 
 
-export interface Order {
-    id:number,
-    companyName:string,
-    nip:string,
-    regon:string,
-    address:string,
-    email:string,
-    orderName :string,
-    brutto:string,
-    completed:boolean;
-}
-
-export interface CompanyType {
-    name: string,
-    nip:string,
-    regon:string,
-    local: string,
-    postalCode: string,
-    city: string,
-    email: string
-}
 
 function Orders() {
 
@@ -36,16 +16,22 @@ function Orders() {
     const account = useAppSelector((state) => state.money.value);
     const [datas, setDatas] = useState<Order[]>([])
     const [companyInfos, setCompanyInfos] = useState({})
+    const [magazine, setMagazine] = useState({})
+
 
 
     useEffect(() => {
         fetchAPI<Order[]>("http://localhost:3000", "orders")
             .then(data => setDatas(data))
-    }, [datas])
+    }, [])
 
     useEffect(() => {
         fetchAPI<CompanyType>("http://localhost:3000", "company")
             .then(data => setCompanyInfos(data))
+    }, [])
+    useEffect(() => {
+        fetchAPI<CompanyType>("http://localhost:3000", "magazine")
+            .then(data => setMagazine(data))
     }, [])
 
 
@@ -88,9 +74,33 @@ function Orders() {
                 return data
             })
 
+
+
+            // const datasToMagazine = order.map(async (item) => {
+            //     const response = await fetch(`http://localhost:3000`,
+            //     {method: 'PATCH',
+            //     body: JSON.stringify({
+            //         magazine: {...magazine, item.name}
+            //     }),
+            //     headers: {
+            //         'Content-type': 'application/json; charset=UTF-8',
+            //     }}
+            //     )
+            //     if (!response.ok) {
+            //         return []
+            //     }
+            //     const data = await response.json();
+            //     return data
+            // })
+
+            order.forEach(item => console.log(item.orderName)
+            )
+
             Promise.all(promises)
                 .then(data => data);
-            
+       
+                
+
             if(order.length>0){
             fetch(`http://localhost:3000/invoices`,
                 {
@@ -114,9 +124,6 @@ function Orders() {
                     ids.forEach(id => dispatch(removeOrder({id})))
                     return datas})
         }}   
-        console.log(`Account: ${account}`);
-        console.log(`Order: ${summaryPrice}`);
-        
         
         dispatch(withdraw(summaryPrice)) 
     }

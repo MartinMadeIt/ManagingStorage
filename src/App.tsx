@@ -4,7 +4,7 @@ import Wrapper from './Components/Wrapper/Wrapper';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Manage from './Components/Manage/Manage';
 import Invoices from './Components/Invoices/Invoices';
-import Sell from './Components/Sell/Sell';
+import Magazine from './Components/Magazine/Magazine';
 import CreateNewInvoice from './Components/CreateNewInvoice/CreateNewInvoice';
 import Orders from './Components/Orders/Orders';
 import InvoiceView from './Components/InvoiceView/InvoiceView';
@@ -26,7 +26,7 @@ function App() {
           <Route path=':InvoiceId' element={<InvoiceView/>} />
         </Route>
         <Route path='/placeorder' element={<CreateNewInvoice />} />
-        <Route path="/sell" element={<Sell />} />
+        <Route path="/magazine" element={<Magazine />} />
         <Route path="/orders" element={<Orders />} />
 
       </Routes>

@@ -1,14 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-interface intialType {
-    accountBallance:number
-}
-
+import { fetchAPI } from "../Controllers/fetchAPI";
 
 interface MoneyState {
     value: number
 }
-
+    
 const initialState:MoneyState = {
     value: 0
 }

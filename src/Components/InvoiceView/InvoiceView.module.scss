@@ -9,8 +9,47 @@
 }
 
 .document {
-    height: 800px;
-    width: 600px;
+    min-height: 600px;
+    width: 1400px;
     background-color: #fff;
     padding: 20px;
+}
+
+.topbar {
+     width: 100%;
+     @include center;
+     justify-content: space-between;
+}
+
+.myCompany {
+    font-weight: 300;
+    width: 300px;
+    height: 130px;
+    font-family: $montserrat;
+    line-height: 10px;
+
+    .name {
+        font-weight: 500;
+        font-size: 20px;
+    }
+}
+
+.position {
+    margin-bottom: 40px;
+
+    .companyDescription {
+        font-size: 18px;
+        font-weight: 500;
+    }
+}
+
+table {
+    font-family: $montserrat;
+    width: 90%;
+    border: 1px solid grey;
+
+    thead {
+        background-color: rgb(88, 88, 88);
+        color: white;
+    }
 }

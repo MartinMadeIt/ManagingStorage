@@ -3,6 +3,7 @@
 
 .container {
     @include componentFullSize;
+    min-height: 100vh;
     background-color: $main-dark;
     color: $main-light;
     @include center;
@@ -22,17 +23,17 @@
     height: 80vh;
     display: grid;
     grid-template-columns: repeat(2, 35%);
+    border-radius: 10px;
     gap: 20px;
-    padding: 30px;
+    padding: 30px 30px 30px 70px;
 
     justify-content: center;
     align-items: center;
 
     background-color: rgba(255, 255, 255, 0.69);
 
-    button {
-        height: 40px;
-        grid-column: 1/span 2;
+    .submit {
+        height: 55px;
 
         border: none;
         border-radius: 6px;
@@ -51,4 +52,186 @@
         }
 
     }
+}
+
+.name {
+    position: relative;
+    
+    &>*:not(button) {
+        width: 100%;
+    }
+
+    button {
+        position: absolute;
+        right: -60px;
+        top: 5px;
+
+        width: 45px;
+        height: 45px;
+        border-radius: 6px;
+        border: none;
+
+        background-color: rgba(0, 0, 255, 0.346);
+        box-shadow: 0 0 4px 0px #00000080;
+        color: white;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba(0, 0, 255, 0.547);
+        }
+
+    }
+}
+
+.boxContainer {
+    @include componentFullSize;
+    backdrop-filter: blur(6px);
+    @include center;
+    z-index: 5;
+    font-family: $montserrat;
+    background-color: rgba(0, 0, 0, 0.599);
+
+    .insideContainer {
+        position: relative;
+        min-width: 1200px;
+        height: fit-content;
+        min-height: 100px;
+        padding: 30px;
+
+        background-color: rgba(255, 255, 255, 0.603);
+        border-radius: 10px;
+        box-shadow: 4px 4px 20px 5px #0000006b;
+    }
+
+    .position {
+        @include center;
+        gap: 10px;
+    }
+
+    .addToList {
+        position: absolute;
+        bottom: 10px;
+        left: 42%;
+
+        font-family: $montserrat;
+
+        width: 150px;
+        height: 50px;
+        border-radius: 10px;
+        cursor: pointer;
+
+        font-size: 18px;
+        font-weight: 300;
+        color: rgb(66, 0, 159);
+
+        border: 1px solid rgb(66, 0, 159);
+        background-color: transparent;
+        transition: 200ms;
+
+        &:hover {
+            background-color: rgba(49, 0, 128, 0.534);
+            color: white;
+        }
+    }
+}
+
+.orderPos,
+.margin,
+.price,
+.addNext,
+.quantity {
+    height: 40px;
+    border-radius: 6px;
+    border: 1px solid rgba(128, 128, 128, 0.527);
+}
+
+.orderPos {
+    width: 250px;
+}
+
+.margin {
+    width: 50px;
+}
+
+.price {
+    width: 100px;
+}
+
+.quantity {
+    width: 60px;
+}
+
+.addNext {
+    margin-left: 20px;
+    width: 40px;
+
+    background-color: transparent;
+    color: rgb(0, 147, 0);
+    border: 1px solid rgb(0, 147, 0);
+    cursor: pointer;
+    transition: 200ms;
+
+    &:hover {
+        color: white;
+        background-color: rgba(0, 148, 0, 0.651);
+    }
+}
+
+.table {
+    margin: 30px 0px;
+    width: 100%;
+    min-height: 100px;
+    color: black;
+
+    table {
+        width: 100%;
+        border: 1px solid grey;
+        border-radius: 6px;
+
+        thead {
+            tr {
+                font-weight: 500;
+                @include center;
+                justify-content: space-evenly;
+                background-color: rgba(128, 128, 128, 0.252);
+
+                td  {
+                    width: 100%;
+                    text-align: left;
+                    padding: 10px;
+                 }
+            }
+        }
+
+
+    }
+
+}
+
+.tbodyTr {
+    width: 100%;
+    font-weight: 300;
+    @include center;
+    justify-content: space-evenly;
+    background-color: rgba(203, 203, 203, 0.623);
+
+    td {
+        padding: 10px;
+        width: 100%;
+        text-align: left;
+    }
+}
+
+
+.summary {
+    width: 96.5%;
+    padding: 20px;
+    @include center;
+    justify-content: space-between;
+    margin-bottom: 60px;
+
+    font-family: $montserrat;
+    font-weight: 500;
+    font-size: 20px;
+    color: black;
 }

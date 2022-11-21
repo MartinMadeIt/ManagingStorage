@@ -4,7 +4,7 @@ import styles from "./TextInput.module.scss"
 
 
 
-function TextInput<T>({formik, acc, label}:{formik:FormikProps<T>; acc:keyof T, label:string}) {
+function TextInput<T>({formik, acc, label, disabled}:{formik:FormikProps<T>; acc:keyof T, label:string, disabled:boolean}) {
   return (
     <TextField
     error={Boolean(formik.touched[acc]) && Boolean(formik.errors[acc])}
@@ -20,6 +20,7 @@ function TextInput<T>({formik, acc, label}:{formik:FormikProps<T>; acc:keyof T, 
     onBlur={formik.handleBlur}
     value={formik.values[acc]}
     className={styles.formInput}
+    disabled={disabled}
     />
   )
 }

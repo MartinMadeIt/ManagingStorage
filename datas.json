@@ -1,72 +1,19 @@
 {
   "finance": {
-    "accountBallance": 0
   },
   "company": {
-    "name": "Invoice Makers Company",
+    "name": "Managing Company",
     "nip": "7896785647",
     "regon": "6784536251",
-    "local": "ul. Startowa 12",
+    "local": "ul. Wielka12",
     "postalCode": "22-333",
     "city": "Pcim",
     "email": "invoices.official@company.pl"
   },
   "orders": [
-    {
-      "companyName": "VetLife Sp.z.o.o",
-      "address": "Waleniowa 26, 34-543, Warsaw",
-      "nip": "1234567897",
-      "regon": "123456482",
-      "email": "vetlife@vet.com",
-      "orderName": "Tolfine 4mg 3 szt., Simparica 60 mg 2 szt.",
-      "brutto": "190",
-      "completed": true,
-      "id": 1
-    },
-    {
-      "companyName": "MorbiVital",
-      "address": "Jarzabkowa 22, 34-223, Cracov",
-      "nip": "1234532123",
-      "regon": "123456789",
-      "email": "morbi.vital@vet.pl",
-      "orderName": "Euthasol 500 ml 12 szt.",
-      "brutto": "1200",
-      "completed": true,
-      "id": 2
-    }
   ],
   "invoices": [
-    {
-      "date": "16.11.2022",
-      "items": [
-        1
-      ],
-      "company": {
-        "name": "Invoice Makers",
-        "nip": "7896785647",
-        "regon": "6784536251",
-        "local": "ul. Startowa 12",
-        "postalCode": "22-333",
-        "city": "Pcim",
-        "email": "invoices.official@company.pl"
-      },
-      "id": 1
-    },
-    {
-      "date": "16.11.2022",
-      "items": [
-        2
-      ],
-      "company": {
-        "name": "Invoice Makers Company",
-        "nip": "7896785647",
-        "regon": "6784536251",
-        "local": "ul. Startowa 12",
-        "postalCode": "22-333",
-        "city": "Pcim",
-        "email": "invoices.official@company.pl"
-      },
-      "id": 2
-    }
-  ]
+    
+  ],
+  "magazine": {}
 }
