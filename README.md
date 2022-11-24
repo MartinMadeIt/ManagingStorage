@@ -1,46 +1,31 @@
-# Getting Started with Create React App
+# PROJECT NOT FINISHED !
+For now you can : 
+* change data of your company, 
+* deposit money (not connected to database yet. For now it uses only Redux, so if you will refresh page - you're account will be zeroed) and withdraw it,
+* place order,
+* Pay for all orders that is matched - if you have enough deposited money,
+* See your payed orders - you can filter by date or show every payed order
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# WHAT FINAL VERSION WILL INCLUDE ? WHAT WILL CHANGE ?
+1.  📦 Magazine - one of the most important pilars of this App. It will storage all of yours items that you payed for (from orders). For now - app uses json-server that was good for begining. But as the App grew - I decided that it will be more clear and comfortable to use SQL database. So for now - I'm transferring data from json-server to postgreSQL. After that I will code some logic that will make it easier for you to use Magazine.
+2. 🖊️ Editability - For now some of operations have disabled options e.x. to delete position. It will be fixed when I will finally implement SQL DS.
+3. 👌🏻 Design - some major differences will be released when all of logic things will be done.
+4. 📚 Libraries - I will add some libraries to project like tanstack and lazy loading.
+5. ❓ EXTRAS - Stay tuned !
 
-## Available Scripts
+# HOW TO RUN IT?
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Clone repo 
+2. Instal all necessary libs by typing:
+```
+npm install
+```
+in terminal <br>
+3. Run json-server on port 3000
+```
+npm json-server --watch datas.json
+```
+4. And now start App on localhost:3001
+```
+npa start
+```
