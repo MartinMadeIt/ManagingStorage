@@ -5,9 +5,9 @@ import GoBack from '../GoBack/GoBack'
 import { addOrder, removeOrder } from '../../Redux/orderSlice'
 import { useAppDispatch, useAppSelector } from '../../Redux/hooks'
 import { withdraw } from '../../Redux/moneySlice'
-import { CompanyType, Order } from '../../types'
+import { Order } from '../../types'
 
-
+// TANSTACK 
 
 function Orders() {
 
@@ -16,25 +16,20 @@ function Orders() {
     const account = useAppSelector((state) => state.money.value);
     const [datas, setDatas] = useState<Order[]>([])
     const [companyInfos, setCompanyInfos] = useState({})
-    const [magazine, setMagazine] = useState({})
+    const [fetchAgain, setFetchAgain] = useState(false)
 
 
 
-    useEffect(() => {
-        fetchAPI<Order[]>("http://localhost:3000", "orders")
-            .then(data => setDatas(data))
-    }, [])
+    const getDatas = fetchAPI<Order[]>("http://localhost:3000", "orders");
+    const getCompany  = fetchAPI<Order[]>("http://localhost:3000", "company");
 
     useEffect(() => {
-        fetchAPI<CompanyType>("http://localhost:3000", "company")
-            .then(data => setCompanyInfos(data))
-    }, [])
-    useEffect(() => {
-        fetchAPI<CompanyType>("http://localhost:3000", "magazine")
-            .then(data => setMagazine(data))
-    }, [])
-
-
+        Promise.all([getDatas, getCompany]).then(files => {
+            setDatas(files[0])
+            setCompanyInfos(files[1])
+        })
+    // eslint-disable-next-line
+    },[fetchAgain])
 
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>, 
         values:Order) => {
@@ -74,9 +69,6 @@ function Orders() {
                 return data
             })
 
-            order.forEach(item => console.log(item.orderName)
-            )
-
             Promise.all(promises)
                 .then(data => data);
        
@@ -104,7 +96,9 @@ function Orders() {
                 .then(datas => {
                     ids.forEach(id => dispatch(removeOrder({id})))
                     return datas})
-        }}   
+        }
+        setFetchAgain(prev => !prev)
+    }   
         
         dispatch(withdraw(summaryPrice)) 
     }
@@ -116,11 +110,8 @@ function Orders() {
   return (
     <div className={styles.container}>
         <GoBack />
-        {
-        // eslint-disable-next-line
-        datas.map(element => 
+        {datas.filter(position => !position.completed).map(element => 
         {        
-        if (!element.completed){
         return (
         <div className={styles.order} key={element.id}>
             <p className={styles.orderName}>{element.orderName} (<span className={styles.little}>{element.companyName}</span>)</p>
@@ -129,7 +120,6 @@ function Orders() {
                 <input type="checkbox" name="orderComplete" onChange={e => handleChange(e, element)} checked={ifInOrder(element.id)} />
             </div>
         </div>)
-        }
         }
             )}
         {datas ? <button onClick={handleSubmit} className={styles.payBtn}>Pay</button> 

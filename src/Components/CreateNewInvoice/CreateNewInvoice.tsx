@@ -1,6 +1,5 @@
 import styles from "./CreateNewInvoice.module.scss"
 import GoBack from '../GoBack/GoBack'
-import * as yup from "yup";
 import { useFormik } from "formik";
 import TextInput from "../TextInput/TextInput";
 import { InferType } from "yup";
@@ -9,22 +8,23 @@ import React, { useState } from "react";
 import { BiAddToQueue } from "react-icons/bi";
 import { NextOrderType, OrderInfos } from "../../types";
 import { TiDeleteOutline } from "react-icons/ti";
+import {  yupSchema } from "../../yupSchemas";
 
-  const requiredMes = "Field Required"
 
-  const yupSchema = yup.object ({
-    companyName: yup.string().required(requiredMes),
-    address: yup.string().required().min(12),
-    nip : yup.string().required().min(10).max(10),
-    regon: yup.string().required().min(9).max(9),
-    email: yup.string().email().required(),
-
-    orderName : yup.string().required(),
-    brutto: yup.string().required()
-  })
+ let i = 1;
 
   export type FormValues = InferType<typeof yupSchema>
 
+  const initialValues:FormValues={
+      companyName:"",
+      address:"",
+      nip:"",
+      regon:"",
+      email: "",
+
+      orderName : "",
+      brutto: ""
+    }
 
   function CreateNewInvoice() {
 
@@ -40,37 +40,19 @@ import { TiDeleteOutline } from "react-icons/ti";
 
 
   const formik = useFormik<FormValues>({
-    initialValues: {
-      companyName:"",
-      address:"",
-      nip:"",
-      regon:"",
-      email: "",
-
-      orderName : "",
-      brutto: ""
-    },
+    initialValues: initialValues,
     validationSchema: yupSchema,
     onSubmit: (values, {resetForm}) => {
-      postAPI("http://localhost:3000", 
-              "orders", 
-              values.companyName,
-              values.address,
-              values.nip,
-              values.regon,
-              values.email,
-              values.orderName,
-              values.brutto,
+      postAPI({api: "http://localhost:3000", 
+              endpoint: "orders", 
+              ...values,
               orderList,
-              false
+              completed: false}
             )
-
-
       resetForm()
       setOrderList([])
     }
   })
-
 
   const boxFormik = useFormik<OrderInfos>({
     initialValues: {
@@ -80,10 +62,11 @@ import { TiDeleteOutline } from "react-icons/ti";
       margin:"",
     },
     onSubmit: (vals, {resetForm}) => {
+      if (Number(orderPrice) > 0 && Number(quantity) > 0) {
       const fee = String(Math.round(Number(orderPrice) * Number(margin) * Number(quantity)))
       const summary = Number(orderPrice) * Number(quantity)
-
       const newPosition:NextOrderType = {
+        id: i++,
         name: orderName,
         price: orderPrice,
         quantity:quantity,
@@ -94,8 +77,9 @@ import { TiDeleteOutline } from "react-icons/ti";
 
       setOrderList(prev => [...prev, newPosition])
       resetForm()
-
     }
+    },
+
   })
 
   const addToList = () => {
@@ -114,18 +98,16 @@ import { TiDeleteOutline } from "react-icons/ti";
       setDisabled(true)
     }
   }
+
   const changeInputQuantity = (e: React.ChangeEvent<HTMLInputElement>) => setQuantity(e.target.value)
 
-  const sumThePrice = () => {
-    let sum = 0;
-    orderList.map((element) => {
-      sum += Number(element.summary)
-    })
-    return sum;
-  }
+  
+  const sumThePrice = () => orderList.reduce((sum, element) => sum + +element.summary,0)
 
   const deletePosition = (e:React.MouseEvent<HTMLButtonElement>) => {
-    // setOrderList(orderList.filter(position => position.id ))    
+    const id = e.currentTarget.parentElement?.parentElement
+    setOrderList(orderList.filter(position => position.id !== Number(id?.id)))
+    console.log(id?.id);
   }
 
   return (
@@ -162,14 +144,14 @@ import { TiDeleteOutline } from "react-icons/ti";
                 <tbody>
                   {orderList.map((pos, index)=> {
                     return (
-                      <tr key={index} className={styles.tbodyTr}>
+                      <tr key={index} className={styles.tbodyTr} id={String(pos.id)}>
                         <td>{pos.name}</td>
                         <td>{pos.price} PLN</td>
                         <td>{pos.quantity}</td>
                         <td>{pos.summary} PLN</td>
                         <td>{Number(pos.margin)*100}%</td>
                         <td>{pos.vat} PLN</td>
-                        <td><button type="button" onClick={deletePosition} id={String(index)} className={styles.delete} disabled><TiDeleteOutline /></button></td>
+                        <td><button type="button" onClick={deletePosition} id={String(index)} className={styles.delete} ><TiDeleteOutline /></button></td>
                       </tr>
                     )
                   })}

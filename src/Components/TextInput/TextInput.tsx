@@ -3,7 +3,6 @@ import { FormikProps } from "formik";
 import styles from "./TextInput.module.scss"
 
 
-
 function TextInput<T>({formik, acc, label, disabled}:{formik:FormikProps<T>; acc:keyof T, label:string, disabled:boolean}) {
   return (
     <TextField

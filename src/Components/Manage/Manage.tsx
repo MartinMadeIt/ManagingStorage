@@ -12,9 +12,7 @@ function Manage() {
     const account = useAppSelector((state) => state.money.value);
     const [inputValue, setInputValue] = useState(0)
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setInputValue(Number(e.target.value))
-    }
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => setInputValue(Number(e.target.value))
 
     const handleDeposit = () => dispatch(deposit(inputValue))
     const handleWithdraw = () => dispatch(withdraw(inputValue))
@@ -27,10 +25,9 @@ function Manage() {
             <div className={styles.actions}>
                 <input type="number"  className={styles.amount} onChange={handleInputChange}/>
                 <div className={styles.buttons}>
-                    <button className={styles.deposit} onClick={()=> {handleDeposit()}}>Deposit</button>
+                    <button className={styles.deposit} onClick={handleDeposit}>Deposit</button>
                     <button className={styles.withdraw} onClick={()=> {handleWithdraw()}}>Withdraw</button>
                 </div>
-
             </div>
         </div>
     )

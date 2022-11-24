@@ -6,6 +6,14 @@ import style from "./Invoices.module.scss"
 import { FaFileInvoiceDollar } from "react-icons/fa";
 import { Invoice } from '../../types'
 
+function File ({element}:{element:Invoice}) {
+  return ( 
+    <div key={element.id} className={style.invoice}>
+      <p className={style.icon}><FaFileInvoiceDollar/></p>
+      <Link to={`${element.id}`} className={style.desc}>{element.id}/{element.date}</Link>
+    </div>
+  )
+}
 
 function Invoices() {
 
@@ -15,23 +23,16 @@ function Invoices() {
 
   useEffect(() => {
     fetchAPI<Invoice[]>("http://localhost:3000", "invoices")
-        .then(data => {
-          console.log(data);
-          
-          setData(data)})
+        .then(data => setData(data))
   }, [])
 
   const spliceDate = (date:string) => {
     const sliced = date.split(/\/|-|\./)
     return sliced.sort()
-    
   }
 
-  const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
-    const chosenDate = e.target.value;
-    setInvoicesDate(spliceDate(chosenDate))
-
-  }
+  const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => setInvoicesDate(spliceDate(e.target.value))
+  const checkDate = (position:Invoice) => (spliceDate(position.date)[0] === invoicesDate[0]) && (spliceDate(position.date)[1] === invoicesDate[1])
 
   return (
     <div className={style.container}>
@@ -42,18 +43,10 @@ function Invoices() {
           <p>Show All</p>
           </button>
         <div className={style.list}>
-        {data.map(element => {            
-            let visible = false;
-            visible = (spliceDate(element.date)[0] === invoicesDate[0]) && (spliceDate(element.date)[1] === invoicesDate[1])
-            
-            if(visible || all){
-            return  <div key={element.id} className={style.invoice}>
-                      <p className={style.icon}><FaFileInvoiceDollar/></p>
-                      <Link to={`${element.id}`} className={style.desc}>{element.id}/{element.date}</Link>
-                    </div>
-                    }
-          })
-        }
+          {
+          all ? data.map(element => <File element={element} /> ) 
+          : data.filter(position =>  checkDate(position)).map(element =>  <File element={element} />)
+          }
         </div>
     </div>
   )

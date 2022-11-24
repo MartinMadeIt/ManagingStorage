@@ -1,9 +1,8 @@
 {
-  "finance": {
-  },
+  "finance": {},
   "company": {
     "name": "Managing Company",
-    "nip": "7896785647",
+    "nip": "7896785648",
     "regon": "6784536251",
     "local": "ul. Wielka12",
     "postalCode": "22-333",
@@ -11,9 +10,277 @@
     "email": "invoices.official@company.pl"
   },
   "orders": [
+    {
+      "companyName": "Vetting Co",
+      "address": "Waleniowa 26, 34-543, Warsaw",
+      "nip": "1234532123",
+      "regon": "123456789",
+      "email": "vetting@vet.co",
+      "orderName": "Simparica 20 mg(...)",
+      "brutto": "1400",
+      "orderList": [
+        {
+          "id": 1,
+          "name": "Simparica 20 mg",
+          "price": "90",
+          "quantity": "4",
+          "summary": 360,
+          "margin": "0.08",
+          "vat": "29"
+        },
+        {
+          "id": 2,
+          "name": "Simparica 40 mg",
+          "price": "110",
+          "quantity": "4",
+          "summary": 440,
+          "margin": "0.08",
+          "vat": "35"
+        },
+        {
+          "id": 4,
+          "name": "Igly 0.2mm 100 szt.",
+          "price": "80",
+          "quantity": "5",
+          "summary": 400,
+          "margin": "0.23",
+          "vat": "92"
+        },
+        {
+          "id": 5,
+          "name": "Rekawiczki nylonowe bezpudrowe M 100 szt.",
+          "price": "40",
+          "quantity": "5",
+          "summary": 200,
+          "margin": "0.23",
+          "vat": "46"
+        }
+      ],
+      "completed": true,
+      "id": 1
+    },
+    {
+      "companyName": "StalHurt S.A.",
+      "address": "Jarzabkowa 22, 34-223, Cracov",
+      "nip": "1234567897",
+      "regon": "123456489",
+      "email": "stalhurt@ex.pl",
+      "orderName": "Igly 0.2mm 100 szt.(...)",
+      "brutto": "900",
+      "orderList": [
+        {
+          "id": 6,
+          "name": "Igly 0.2mm 100 szt.",
+          "price": "80",
+          "quantity": "4",
+          "summary": 320,
+          "margin": "0.23",
+          "vat": "74"
+        },
+        {
+          "id": 7,
+          "name": "Igly 0.4mm 100 szt.",
+          "price": "110",
+          "quantity": "4",
+          "summary": 440,
+          "margin": "0.23",
+          "vat": "101"
+        },
+        {
+          "id": 8,
+          "name": "Igly 0.6mm 100 szt.",
+          "price": "140",
+          "quantity": "1",
+          "summary": 140,
+          "margin": "0.23",
+          "vat": "32"
+        }
+      ],
+      "completed": true,
+      "id": 2
+    },
+    {
+      "companyName": "VetLife Sp.z.o.o",
+      "address": "Waleniowa 26, 34-543, Warsaw",
+      "nip": "1234532123",
+      "regon": "123456489",
+      "email": "vetlife@vet.com",
+      "orderName": "Igly 0.2mm 100 szt.(...)",
+      "brutto": "1530",
+      "orderList": [
+        {
+          "id": 1,
+          "name": "Igly 0.2mm 100 szt.",
+          "price": "90",
+          "quantity": "6",
+          "summary": 540,
+          "margin": "0.23",
+          "vat": "124"
+        },
+        {
+          "id": 2,
+          "name": "Igly 0.4mm 100 szt.",
+          "price": "120",
+          "quantity": "2",
+          "summary": 240,
+          "margin": "0.23",
+          "vat": "55"
+        },
+        {
+          "id": 3,
+          "name": "Strzykawki 3ml 100 szt.",
+          "price": "80",
+          "quantity": "3",
+          "summary": 240,
+          "margin": "0.23",
+          "vat": "55"
+        },
+        {
+          "id": 4,
+          "name": "Strzykawki 5ml 100 szt.",
+          "price": "110",
+          "quantity": "3",
+          "summary": 330,
+          "margin": "0.23",
+          "vat": "76"
+        },
+        {
+          "id": 5,
+          "name": "Strzykawki 20ml 100 szt.",
+          "price": "180",
+          "quantity": "1",
+          "summary": 180,
+          "margin": "0.23",
+          "vat": "41"
+        }
+      ],
+      "completed": true,
+      "id": 3
+    },
+    {
+      "companyName": "MorbiVital",
+      "address": "Jarzabkowa 22, 34-223, Cracov",
+      "nip": "1234532123",
+      "regon": "123456789",
+      "email": "morbi.vital@vet.pl",
+      "orderName": "Ketamina 20ml pro inj.(...)",
+      "brutto": "1220",
+      "orderList": [
+        {
+          "id": 1,
+          "name": "Ketamina 20ml pro inj.",
+          "price": "200",
+          "quantity": "1",
+          "summary": 200,
+          "margin": "0.08",
+          "vat": "16"
+        },
+        {
+          "id": 2,
+          "name": "Morbital pro inj. 50ml ",
+          "price": "180",
+          "quantity": "1",
+          "summary": 180,
+          "margin": "0.08",
+          "vat": "14"
+        },
+        {
+          "id": 3,
+          "name": "Wenflon PUR 0.3mm 50szt.",
+          "price": "120",
+          "quantity": "2",
+          "summary": 240,
+          "margin": "0.23",
+          "vat": "55"
+        },
+        {
+          "id": 5,
+          "name": "Wenflon PUR 1.2mm 50szt.",
+          "price": "200",
+          "quantity": "2",
+          "summary": 400,
+          "margin": "0.23",
+          "vat": "92"
+        },
+        {
+          "id": 6,
+          "name": "FLEX",
+          "price": "8",
+          "quantity": "25",
+          "summary": 200,
+          "margin": "0.23",
+          "vat": "46"
+        }
+      ],
+      "completed": true,
+      "id": 4
+    }
   ],
   "invoices": [
-    
+    {
+      "date": "24.11.2022",
+      "items": [
+        1
+      ],
+      "company": {
+        "name": "Managing Company",
+        "nip": "7896785648",
+        "regon": "6784536251",
+        "local": "ul. Wielka12",
+        "postalCode": "22-333",
+        "city": "Pcim",
+        "email": "invoices.official@company.pl"
+      },
+      "id": 1
+    },
+    {
+      "date": "24.11.2022",
+      "items": [
+        2
+      ],
+      "company": {
+        "name": "Managing Company",
+        "nip": "7896785648",
+        "regon": "6784536251",
+        "local": "ul. Wielka12",
+        "postalCode": "22-333",
+        "city": "Pcim",
+        "email": "invoices.official@company.pl"
+      },
+      "id": 2
+    },
+    {
+      "date": "24.11.2022",
+      "items": [
+        3
+      ],
+      "company": {
+        "name": "Managing Company",
+        "nip": "7896785648",
+        "regon": "6784536251",
+        "local": "ul. Wielka12",
+        "postalCode": "22-333",
+        "city": "Pcim",
+        "email": "invoices.official@company.pl"
+      },
+      "id": 3
+    },
+    {
+      "date": "24.11.2022",
+      "items": [
+        4
+      ],
+      "company": {
+        "name": "Managing Company",
+        "nip": "7896785648",
+        "regon": "6784536251",
+        "local": "ul. Wielka12",
+        "postalCode": "22-333",
+        "city": "Pcim",
+        "email": "invoices.official@company.pl"
+      },
+      "id": 4
+    }
   ],
   "magazine": {}
 }

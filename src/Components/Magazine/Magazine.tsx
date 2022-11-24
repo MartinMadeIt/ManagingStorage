@@ -26,10 +26,8 @@ function Magazine() {
 
       setTime({days:Math.round(days), hours:Math.round(hours), minutes:Math.round(minutes), seconds:Math.round(seconds)})   
     }, 1000)
+  // eslint-disable-next-line
   }, [time])
-
-  const days= "DAYS";
-  const day = "DAY";
 
   const addZeroBefore = (item:number) => {
     if(item >= 10) {
@@ -51,7 +49,7 @@ function Magazine() {
           We do our best to open our magazine in:
         </p>
         <div className={styles.time}>
-          <p>{time?.days} {Number(time?.days) > 1 ? days : day} and </p>
+          <p>{time?.days} {Number(time?.days) > 1 ? "days" : "day"} and </p>
           <p>{addZeroBefore(Number(time?.hours))} : {addZeroBefore(Number(time?.minutes))} : {addZeroBefore(Number(time?.seconds))}</p>
 
         </div>

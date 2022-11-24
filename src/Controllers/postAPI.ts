@@ -1,6 +1,6 @@
 import { NextOrderType } from "../types"
 
-export default function postAPI(api:string, 
+export default function postAPI({api,endpoint,companyName,address,nip,regon,email,orderName,brutto,orderList,completed}:{api:string, 
     endpoint:string, 
     companyName:string,
     address:string,
@@ -10,7 +10,7 @@ export default function postAPI(api:string,
     orderName : string,
     brutto: string,
     orderList:NextOrderType[],
-    completed:boolean) {
+    completed:boolean}) {
 
     fetch(`${api}/${endpoint}`,
     {

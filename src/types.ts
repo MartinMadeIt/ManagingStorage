@@ -7,7 +7,8 @@ export type NextOrderType = {
     quantity:string,
     summary:number,
     margin:string,
-    vat:string
+    vat:string,
+    id:number
   }
   
   export interface OrderInfos {

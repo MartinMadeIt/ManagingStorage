@@ -16,7 +16,7 @@ function InvoiceView() {
   const {InvoiceId} = useParams()
 
   useEffect(() => {
-    fetchAPI<Invoice>(`http://localhost:3000/invoices`, String(InvoiceId))
+    fetchAPI<Invoice>(`http://localhost:3000/invoices`, `${InvoiceId}`)
       .then(data => {
         setDate(data.date)
         setCompany(data.company)
@@ -27,6 +27,7 @@ function InvoiceView() {
   const fetchOrder = (index:string) => {
     fetchAPI<OrderFetchType>(`http://localhost:3000/orders`, String(index))
       .then(data => {
+        // OMIT albo Pick i wtedy {...data}
       const newPositionInOrder:Partial<OrderFetchType> = {
           companyName: data.companyName,
           address: data.address,
@@ -69,11 +70,11 @@ function InvoiceView() {
           </div>
           <div className={styles.infos}>
 
-            {contractorOrder?.map((element, index) => {
+            {contractorOrder?.map((element) => {
               console.log(contractorOrder);
               
               return (
-                <div className={styles.position} key={index}>
+                <div className={styles.position} key={element.id}>
                   <p className={styles.companyDescription}>{element.companyName}, {element.address}, NIP: {element.nip}</p>
                   <table>
                     <thead>

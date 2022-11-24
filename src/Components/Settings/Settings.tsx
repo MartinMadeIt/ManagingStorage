@@ -3,33 +3,26 @@ import styles from "./Settings.module.scss"
 import { useFormik } from "formik";
 import TextInput from "../TextInput/TextInput";
 import { InferType } from "yup";
-import * as yup from "yup";
 import { fetchAPI } from "../../Controllers/fetchAPI";
 import { CompanyType } from "../../types"
 import { Link } from "react-router-dom";
 import { FaRegTimesCircle } from "react-icons/fa";
-
-const yupSetSchema = yup.object({
-    name: yup.string(),
-    nip: yup.string().min(10).max(10),
-    regon: yup.string().min(10).max(10),
-    local: yup.string(),
-    postalCode: yup.string().matches(/^[0-9]{2}-[0-9]{3}/, "Postal Code is XX-XXX"),
-    email: yup.string().email()
-})
+import { yupSetSchema } from "../../yupSchemas";
 
 type FormValues = InferType<typeof yupSetSchema>
 
 function Settings() {
 
     const [data, setData] = useState<CompanyType|null>(null)
+    const [fetchAgain, setFetchAgain] = useState(false)
 
     useEffect(() => {
         fetchAPI<CompanyType>("http://localhost:3000", "company")
           .then(data => setData(data))
-      }, [data])
+      }, [fetchAgain])
 
-    const initialValues = data ? {...data} 
+    const initialValues = data 
+    ? {...data} 
     : {
         name:"",
         nip:"",
@@ -41,7 +34,6 @@ function Settings() {
 
     const settingsUpdate = useFormik<FormValues>({
         enableReinitialize : true,
-        
         initialValues,
         onSubmit: (values) => {
             fetch(`http://localhost:3000/company`,
@@ -64,6 +56,7 @@ function Settings() {
                     return response.json()
                 })
                 .then(datas => datas)
+            setFetchAgain(prev => !prev)
                 },
         validationSchema: yupSetSchema
 

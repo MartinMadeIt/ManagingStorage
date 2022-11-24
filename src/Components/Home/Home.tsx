@@ -5,33 +5,21 @@ import { useAppSelector } from '../../Redux/hooks';
 import { AiOutlineSetting } from "react-icons/ai";
 import { useEffect, useState } from 'react'
 import { fetchAPI } from '../../Controllers/fetchAPI'
+import { CompanyType } from '../../types';
 
-// Dolny interface jest tym samym co exportowany CompanyType
-interface DataType {
-  name: string,
-  nip:string,
-  regon:string,
-  local: string,
-  postalCode: string,
-  city: string,
-  email: string
-}
 
 function Home() {
 
-
-  const [name, setName] = useState<string>("")
+  const [name, setName] = useState("")
 
   const account = useAppSelector((state) => state.money.value)
-  const numberTopercentage:number = Math.round(Number(account)/deafultAccountBalance*100)
-  // const numberTopercentage:number = Math.round(account/deafultAccountBalance*100)
-  const accountPercentage:number = numberTopercentage>100 ? 100 : numberTopercentage;
+  const numberTopercentage = Math.round(account/deafultAccountBalance*100)
+  const accountPercentage = numberTopercentage>100 ? 100 : numberTopercentage;
 
   useEffect(() => {
-    fetchAPI<DataType>("http://localhost:3000", "company")
+    fetchAPI<CompanyType>("http://localhost:3000", "company")
       .then(data => setName(data.name))
   }, [])
-
 
   return (
     <div className={styles.container}>
