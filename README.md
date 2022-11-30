@@ -23,9 +23,9 @@ npm install
 in terminal <br>
 3. Run json-server on port 3000
 ```
-npm json-server --watch datas.json
+npx json-server --watch datas.json
 ```
 4. And now start App on localhost:3001
 ```
-npa start
+npm start
 ```
