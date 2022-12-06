@@ -12,7 +12,7 @@ interface TimeType {
 function Magazine() {
 
   const today = new Date();
-  const openMagazineDate = new Date('2022-12-23T12:00:00')
+  const openMagazineDate = new Date('2022-12-24T12:00:00')
 
   const [time, setTime] = useState<TimeType>()
 
